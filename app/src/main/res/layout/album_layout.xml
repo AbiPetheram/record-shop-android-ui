@@ -9,32 +9,66 @@
             type="com.example.record_shop_android_ui.model.Album" />
     </data>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10dp"
+        android:outlineAmbientShadowColor="@color/design_default_color_primary_dark">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <TextView
             android:id="@+id/album_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/doctor_glitch"
             android:text="@{album.albumName}"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/melting_record"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Album name"/>
+            tools:text="Album name" />
 
         <TextView
             android:id="@+id/artist_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/forque"
             android:text="@{album.artistName}"
-            tools:text="Artist name"
-            android:layout_marginStart="16dp"
-            android:textSize="18dp"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/melting_record"
             app:layout_constraintTop_toBottomOf="@id/album_name"
-            app:layout_constraintStart_toStartOf="parent"/>
+            tools:text="Artist name" />
+
+        <TextView
+            android:id="@+id/genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/stamp_font"
+            android:text="@{album.genre}"
+            android:textSize="18dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/melting_record"
+            tools:text="Genre" />
+
+        <ImageView
+            android:id="@+id/melting_record"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/melting_record"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>
