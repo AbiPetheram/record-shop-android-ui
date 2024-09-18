@@ -36,5 +36,8 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
     }
 }
