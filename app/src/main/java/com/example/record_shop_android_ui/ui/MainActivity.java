@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.record_shop_android_ui.R;
@@ -50,7 +51,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Album> albumsFromLiveData) {
                 albums = (ArrayList<Album>) albumsFromLiveData;
+                displayInRecyclerView();
             }
         });
+    }
+
+    private void displayInRecyclerView(){
+        recyclerView = binding.recyclerView;
+        albumAdapter = new AlbumAdapter(this, albums);
+        recyclerView.setAdapter(albumAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        albumAdapter.notifyDataSetChanged();
     }
 }
