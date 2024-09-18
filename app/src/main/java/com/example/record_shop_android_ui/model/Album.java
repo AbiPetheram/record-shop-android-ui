@@ -41,8 +41,8 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public long getReleaseYear() {
-        return releaseYear;
+    public String getReleaseYear() {
+        return String.valueOf(releaseYear);
     }
 
     @Bindable
