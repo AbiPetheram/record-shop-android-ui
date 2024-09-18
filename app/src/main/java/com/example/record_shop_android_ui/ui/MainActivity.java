@@ -7,10 +7,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.record_shop_android_ui.R;
+import com.example.record_shop_android_ui.databinding.ActivityMainBinding;
+import com.example.record_shop_android_ui.model.Album;
+import com.example.record_shop_android_ui.ui.mainactivity.AlbumAdapter;
+import com.example.record_shop_android_ui.ui.mainactivity.MainActivityViewModel;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private ArrayList<Album> albums;
+    private AlbumAdapter albumAdapter;
+    private MainActivityViewModel viewModel;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
