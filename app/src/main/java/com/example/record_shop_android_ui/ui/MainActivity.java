@@ -8,6 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import com.example.record_shop_android_ui.ui.mainactivity.AlbumAdapter;
 import com.example.record_shop_android_ui.ui.mainactivity.MainActivityViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -39,5 +41,16 @@ public class MainActivity extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+
+        getAllAlbums();
+    }
+
+    private void getAllAlbums(){
+        viewModel.getAllAlbums().observe(this, new Observer<List<Album>>() {
+            @Override
+            public void onChanged(List<Album> albumsFromLiveData) {
+                albums = (ArrayList<Album>) albumsFromLiveData;
+            }
+        });
     }
 }
