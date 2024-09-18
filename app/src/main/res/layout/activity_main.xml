@@ -15,7 +15,7 @@
             android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:scaleType="fitStart"
-            android:src="@drawable/sound_waves"
+            android:src="@drawable/vinyl_records_green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
