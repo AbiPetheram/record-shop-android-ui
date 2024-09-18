@@ -1,6 +1,8 @@
 package com.example.record_shop_android_ui.model;
 
-public class Album {
+import androidx.databinding.BaseObservable;
+
+public class Album extends BaseObservable {
     private long id;
     private String albumName;
     private String artistName;
