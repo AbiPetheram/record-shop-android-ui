@@ -43,8 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sound_header"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/doctor_glitch"/>
+            android:layout_marginTop="15dp"/>
 
         <EditText
             android:id="@+id/artist_name"
@@ -59,8 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/album_name"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/doctor_glitch"/>
+            android:layout_marginTop="15dp"/>
 
         <EditText
             android:id="@+id/release_year"
@@ -71,13 +69,12 @@
             android:background="@drawable/edittext_frame"
             android:hint="Enter release year"
             android:textSize="18dp"
-            android:text="@={album.releaseYear}"
             android:inputType="number"
+            android:text="@={album.releaseYear}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/artist_name"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/doctor_glitch"/>
+            android:layout_marginTop="15dp" />
 
         <EditText
             android:id="@+id/stock"
@@ -93,8 +90,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/release_year"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/doctor_glitch"/>
+            android:layout_marginTop="15dp" />
 
         <EditText
             android:id="@+id/genre"
@@ -109,8 +105,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/stock"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/doctor_glitch"/>
+            android:layout_marginTop="15dp"/>
 
         <Button
             android:id="@+id/button"
@@ -121,9 +116,9 @@
             app:layout_constraintTop_toBottomOf="@+id/genre"
             android:layout_marginTop="20dp"
             android:text="Submit"
-            android:textSize="18dp"
+            android:textSize="24dp"
             android:background="@drawable/rounded_button_green"
-            android:fontFamily="@font/doctor_glitch"
+            android:fontFamily="@font/forque"
             android:backgroundTint="@color/lime_green"
             android:onClick="@{clickHandler::submitButton}"/>
 
@@ -131,7 +126,7 @@
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginStart="30dp"
             android:clickable="true"
             app:layout_constraintStart_toStartOf="parent"
