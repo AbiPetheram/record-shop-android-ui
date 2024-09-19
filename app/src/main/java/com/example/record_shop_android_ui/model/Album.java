@@ -1,7 +1,11 @@
 package com.example.record_shop_android_ui.model;
 
+import android.widget.TextView;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.InverseBindingAdapter;
 
 import com.example.record_shop_android_ui.BR;
 
@@ -9,11 +13,11 @@ public class Album extends BaseObservable {
     private Long id;
     private String albumName;
     private String artistName;
-    private Long releaseYear;
+    private Integer releaseYear;
     private String genre;
-    private Long stock;
+    private Integer stock;
 
-    public Album(Long id, String albumName, String artistName, Long releaseYear, String genre, Long stock) {
+    public Album(Long id, String albumName, String artistName, Integer releaseYear, String genre, Integer stock) {
         this.id = id;
         this.albumName = albumName;
         this.artistName = artistName;
@@ -41,8 +45,8 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public String getReleaseYear() {
-        return String.valueOf(releaseYear);
+    public Integer getReleaseYear() {
+        return releaseYear;
     }
 
     @Bindable
@@ -51,16 +55,12 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public String getStock() {
-        return String.valueOf(stock);
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setId(String id) {
-        try{
-            this.id = Long.parseLong(id);
-        } catch(NumberFormatException e){
-            this.id = null;
-        }
+    public void setId(Long id){
+        this.id = id;
         notifyPropertyChanged(BR.id);
     }
 
@@ -74,12 +74,8 @@ public class Album extends BaseObservable {
         notifyPropertyChanged(BR.id);
     }
 
-    public void setReleaseYear(String releaseYear) {
-        try{
-            this.releaseYear = Long.parseLong(releaseYear);
-        } catch(NumberFormatException e){
-            this.releaseYear = null;
-        }
+    public void setReleaseYear(Integer releaseYear) {
+        this.releaseYear = releaseYear;
         notifyPropertyChanged(BR.id);
     }
 
@@ -88,12 +84,8 @@ public class Album extends BaseObservable {
         notifyPropertyChanged(BR.id);
     }
 
-    public void setStock(String stock) {
-        try{
-            this.stock = Long.parseLong(stock);
-        } catch(NumberFormatException e){
-            this.stock = null;
-        }
+    public void setStock(Integer stock) {
+        this.stock = stock;
         notifyPropertyChanged(BR.id);
     }
 }
