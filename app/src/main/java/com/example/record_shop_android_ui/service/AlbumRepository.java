@@ -2,6 +2,7 @@ package com.example.record_shop_android_ui.service;
 
 import android.app.Application;
 import android.provider.MediaStore;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -45,12 +46,16 @@ public class AlbumRepository {
         call.enqueue(new Callback<Album>() {
             @Override
             public void onResponse(Call<Album> call, Response<Album> response) {
-
+                Toast.makeText(application.getApplicationContext(),
+                        response.body().getAlbumName() + " added to database",
+                        Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Album> call, Throwable t) {
-
+                Toast.makeText(application.getApplicationContext(),
+                        "Unable to add album to database",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
