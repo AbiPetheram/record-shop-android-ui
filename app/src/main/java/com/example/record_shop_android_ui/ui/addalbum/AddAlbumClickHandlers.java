@@ -36,6 +36,12 @@ public class AddAlbumClickHandlers {
                     album.getStock()
             );
             viewModel.addAlbum(newAlbum);
+            context.startActivity(intent);
         }
+    }
+
+    public void backButton(View view){
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 }
