@@ -107,7 +107,18 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/doctor_glitch"/>
 
-
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genre"
+            android:layout_marginTop="20dp"
+            android:text="Submit"
+            android:textSize="18dp"
+            android:background="@drawable/rounded_button_green"
+            android:fontFamily="@font/doctor_glitch"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
