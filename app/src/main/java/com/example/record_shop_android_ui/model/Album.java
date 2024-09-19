@@ -88,4 +88,14 @@ public class Album extends BaseObservable {
         this.stock = stock;
         notifyPropertyChanged(BR.id);
     }
+
+    @BindingAdapter("android:text")
+    public static void setText(TextView view, int value) {
+        view.setText(Integer.toString(value));
+    }
+
+    @InverseBindingAdapter(attribute = "android:text")
+    public static int getText(TextView view) {
+        return Integer.parseInt(view.getText().toString());
+    }
 }
