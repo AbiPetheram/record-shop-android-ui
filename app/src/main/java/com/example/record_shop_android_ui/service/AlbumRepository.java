@@ -1,6 +1,7 @@
 package com.example.record_shop_android_ui.service;
 
 import android.app.Application;
+import android.provider.MediaStore;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -36,5 +37,21 @@ public class AlbumRepository {
             }
         });
         return mutableLiveData;
+    }
+
+    public void addAlbum(Album album){
+        AlbumApiService albumApiService = RetrofitInstance.getService();
+        Call<Album> call = albumApiService.addAlbum(album);
+        call.enqueue(new Callback<Album>() {
+            @Override
+            public void onResponse(Call<Album> call, Response<Album> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Album> call, Throwable t) {
+
+            }
+        });
     }
 }
