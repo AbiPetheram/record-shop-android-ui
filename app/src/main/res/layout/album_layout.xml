@@ -27,13 +27,17 @@
 
         <TextView
             android:id="@+id/album_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/doctor_glitch"
+            android:fontFamily="@font/forque"
             android:text="@{album.albumName}"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:textAlignment="textStart"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/melting_record"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Album name" />
@@ -44,7 +48,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/forque"
             android:text="@{album.artistName}"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/melting_record"
             app:layout_constraintTop_toBottomOf="@id/album_name"
             tools:text="Artist name" />
@@ -55,24 +59,24 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/forque"
             android:text="@{album.releaseYear}"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/melting_record"
             app:layout_constraintTop_toBottomOf="@id/artist_name"
             tools:text="Year" />
 
         <TextView
             android:id="@+id/genre"
-            android:layout_width="111dp"
-            android:layout_height="56dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/stamp_font"
             android:text="@{album.genre}"
             android:textColor="@color/lime_green"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/artist_name"
             tools:text="Genre"
-            android:textAlignment="textEnd"/>
+            android:textAlignment="textEnd" />
 
         <ImageView
             android:id="@+id/melting_record"
