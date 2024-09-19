@@ -1,5 +1,6 @@
 package com.example.record_shop_android_ui.model;
 
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.databinding.BaseObservable;
@@ -45,8 +46,11 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public Integer getReleaseYear() {
-        return releaseYear;
+    public String getReleaseYear() {
+        if(releaseYear==null){
+            return null;
+        }
+        return String.valueOf(releaseYear);
     }
 
     @Bindable
@@ -55,8 +59,11 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public Integer getStock() {
-        return stock;
+    public String getStock() {
+        if(stock==null){
+            return null;
+        }
+        return String.valueOf(stock);
     }
 
     public void setId(Long id){
@@ -74,28 +81,28 @@ public class Album extends BaseObservable {
         notifyPropertyChanged(BR.id);
     }
 
-    public void setReleaseYear(Integer releaseYear) {
-        this.releaseYear = releaseYear;
+    public void setReleaseYear(String releaseYear) {
+
+        try{
+            this.releaseYear = Integer.parseInt(releaseYear);
+        } catch (NumberFormatException e){
+            this.releaseYear = null;
+        }
         notifyPropertyChanged(BR.id);
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        this.genre = genre.toUpperCase();
         notifyPropertyChanged(BR.id);
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setStock(String stock) {
+        try{
+            this.stock = Integer.parseInt(stock);
+        } catch (NumberFormatException e){
+            this.stock = null;
+        }
         notifyPropertyChanged(BR.id);
     }
 
-    @BindingAdapter("android:text")
-    public static void setText(TextView view, int value) {
-        view.setText(Integer.toString(value));
-    }
-
-    @InverseBindingAdapter(attribute = "android:text")
-    public static int getText(TextView view) {
-        return Integer.parseInt(view.getText().toString());
-    }
 }
