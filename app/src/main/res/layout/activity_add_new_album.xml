@@ -8,6 +8,9 @@
         <variable
             name="album"
             type="com.example.record_shop_android_ui.model.Album" />
+        <variable
+            name="clickHandler"
+            type="com.example.record_shop_android_ui.ui.addalbum.AddAlbumClickHandlers" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -120,7 +123,9 @@
             android:text="Submit"
             android:textSize="18dp"
             android:background="@drawable/rounded_button_green"
-            android:fontFamily="@font/doctor_glitch"/>
+            android:fontFamily="@font/doctor_glitch"
+            android:backgroundTint="@color/lime_green"
+            android:onClick="@{clickHandler::submitButton}"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
@@ -133,7 +138,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_revert"
             app:tint="@color/black"
-            android:outlineAmbientShadowColor="@color/lime_green"/>
+            android:outlineAmbientShadowColor="@color/lime_green"
+            android:onClick="@{clickHandler::backButton}"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
