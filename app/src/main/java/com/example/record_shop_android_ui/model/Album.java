@@ -6,14 +6,14 @@ import androidx.databinding.Bindable;
 import com.example.record_shop_android_ui.BR;
 
 public class Album extends BaseObservable {
-    private long id;
+    private Long id;
     private String albumName;
     private String artistName;
-    private long releaseYear;
+    private Long releaseYear;
     private String genre;
-    private long stock;
+    private Long stock;
 
-    public Album(long id, String albumName, String artistName, long releaseYear, String genre, long stock) {
+    public Album(Long id, String albumName, String artistName, Long releaseYear, String genre, Long stock) {
         this.id = id;
         this.albumName = albumName;
         this.artistName = artistName;
@@ -26,7 +26,7 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -51,12 +51,16 @@ public class Album extends BaseObservable {
     }
 
     @Bindable
-    public long getStock() {
-        return stock;
+    public String getStock() {
+        return String.valueOf(stock);
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(String id) {
+        try{
+            this.id = Long.parseLong(id);
+        } catch(NumberFormatException e){
+            this.id = null;
+        }
         notifyPropertyChanged(BR.id);
     }
 
@@ -70,8 +74,12 @@ public class Album extends BaseObservable {
         notifyPropertyChanged(BR.id);
     }
 
-    public void setReleaseYear(long releaseYear) {
-        this.releaseYear = releaseYear;
+    public void setReleaseYear(String releaseYear) {
+        try{
+            this.releaseYear = Long.parseLong(releaseYear);
+        } catch(NumberFormatException e){
+            this.releaseYear = null;
+        }
         notifyPropertyChanged(BR.id);
     }
 
@@ -80,8 +88,12 @@ public class Album extends BaseObservable {
         notifyPropertyChanged(BR.id);
     }
 
-    public void setStock(long stock) {
-        this.stock = stock;
+    public void setStock(String stock) {
+        try{
+            this.stock = Long.parseLong(stock);
+        } catch(NumberFormatException e){
+            this.stock = null;
+        }
         notifyPropertyChanged(BR.id);
     }
 }
