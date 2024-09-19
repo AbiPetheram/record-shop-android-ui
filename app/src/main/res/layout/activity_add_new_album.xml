@@ -120,6 +120,19 @@
             android:background="@drawable/rounded_button_green"
             android:fontFamily="@font/doctor_glitch"/>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_revert"
+            app:tint="@color/black"
+            android:outlineAmbientShadowColor="@color/lime_green"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
