@@ -1,4 +1,4 @@
-package com.example.record_shop_android_ui.ui;
+package com.example.record_shop_android_ui.ui.mainactivity;
 
 import android.os.Bundle;
 
@@ -16,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.record_shop_android_ui.R;
 import com.example.record_shop_android_ui.databinding.ActivityMainBinding;
 import com.example.record_shop_android_ui.model.Album;
-import com.example.record_shop_android_ui.ui.mainactivity.AlbumAdapter;
-import com.example.record_shop_android_ui.ui.mainactivity.MainActivityViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
