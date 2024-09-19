@@ -31,9 +31,9 @@ public class AddAlbumClickHandlers {
                     album.getId(),
                     album.getAlbumName(),
                     album.getArtistName(),
-                    album.getReleaseYear(),
+                    Integer.parseInt(album.getReleaseYear()),
                     album.getGenre(),
-                    album.getStock()
+                    Integer.parseInt(album.getStock())
             );
             viewModel.addAlbum(newAlbum);
             context.startActivity(intent);
