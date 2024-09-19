@@ -2,7 +2,6 @@ package com.example.record_shop_android_ui.ui.mainactivity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
