@@ -21,7 +21,7 @@ public class UpdateAlbumClickHandler {
         this.context = context;
     }
 
-    public void onUpdateButtonClicked(){
+    public void onUpdateButtonClicked(View view){
         if(album.getAlbumName() == null || album.getArtistName() == null || album.getGenre() == null
                 || album.getReleaseYear() == null || album.getStock() == null){
             Toast.makeText(context, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
@@ -41,7 +41,7 @@ public class UpdateAlbumClickHandler {
         }
     }
 
-    public void onDeleteButtonClicked(){
+    public void onDeleteButtonClicked(View view){
             Intent intent = new Intent(context, MainActivity.class);
             viewModel.deleteAlbum(album.getId());
             context.startActivity(intent);
