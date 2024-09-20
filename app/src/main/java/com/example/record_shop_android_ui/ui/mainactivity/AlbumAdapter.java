@@ -2,6 +2,7 @@ package com.example.record_shop_android_ui.ui.mainactivity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
                 R.layout.album_layout,
                 parent,
                 false);
-        return new AlbumViewHolder(albumLayoutBinding);
+        return new AlbumViewHolder(albumLayoutBinding, recyclerViewInterface);
     }
 
     @Override
