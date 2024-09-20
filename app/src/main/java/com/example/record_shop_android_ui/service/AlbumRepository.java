@@ -2,6 +2,7 @@ package com.example.record_shop_android_ui.service;
 
 import android.app.Application;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
@@ -56,6 +57,27 @@ public class AlbumRepository {
                 Toast.makeText(application.getApplicationContext(),
                         "Unable to add album to database",
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void updateAlbum(Long id, Album album){
+        AlbumApiService albumApiService = RetrofitInstance.getService();
+        Call<Album> call = albumApiService.updateAlbum(id, album);
+        call.enqueue(new Callback<Album>() {
+            @Override
+            public void onResponse(Call<Album> call, Response<Album> response) {
+                Toast.makeText(application.getApplicationContext(),
+                        response.body().getAlbumName() + " has been updated",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Album> call, Throwable t) {
+                Toast.makeText(application.getApplicationContext(),
+                        "Unable to update album",
+                        Toast.LENGTH_SHORT).show();
+                Log.e("PUT REQUEST", t.getMessage());
             }
         });
     }
