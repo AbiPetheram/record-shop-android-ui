@@ -1,8 +1,11 @@
 package com.example.record_shop_android_ui.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
@@ -10,7 +13,7 @@ import androidx.databinding.InverseBindingAdapter;
 
 import com.example.record_shop_android_ui.BR;
 
-public class Album extends BaseObservable {
+public class Album extends BaseObservable implements Parcelable {
     private Long id;
     private String albumName;
     private String artistName;
@@ -29,6 +32,39 @@ public class Album extends BaseObservable {
 
     public Album() {
     }
+
+    protected Album(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+        albumName = in.readString();
+        artistName = in.readString();
+        if (in.readByte() == 0) {
+            releaseYear = null;
+        } else {
+            releaseYear = in.readInt();
+        }
+        genre = in.readString();
+        if (in.readByte() == 0) {
+            stock = null;
+        } else {
+            stock = in.readInt();
+        }
+    }
+
+    public static final Creator<Album> CREATOR = new Creator<Album>() {
+        @Override
+        public Album createFromParcel(Parcel in) {
+            return new Album(in);
+        }
+
+        @Override
+        public Album[] newArray(int size) {
+            return new Album[size];
+        }
+    };
 
     @Bindable
     public Long getId() {
@@ -105,4 +141,33 @@ public class Album extends BaseObservable {
         notifyPropertyChanged(BR.id);
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        if (id == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeLong(id);
+        }
+        parcel.writeString(albumName);
+        parcel.writeString(artistName);
+        if (releaseYear == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(releaseYear);
+        }
+        parcel.writeString(genre);
+        if (stock == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(stock);
+        }
+    }
 }
