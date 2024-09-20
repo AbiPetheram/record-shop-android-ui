@@ -40,4 +40,15 @@ public class UpdateAlbumClickHandlers {
         }
     }
 
+    public void onDeleteButtonClicked(){
+        if(album.getId() == null){
+            Toast.makeText(context, "Unable to delete album", Toast.LENGTH_SHORT).show();
+        } else{
+            Intent intent = new Intent(context, MainActivity.class);
+            viewModel.deleteAlbum(album.getId());
+            Toast.makeText(context, "Album deleted", Toast.LENGTH_SHORT).show();
+            context.startActivity(intent);
+        }
+    }
+
 }
