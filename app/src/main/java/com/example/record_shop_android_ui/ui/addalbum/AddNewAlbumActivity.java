@@ -17,7 +17,7 @@ import com.example.record_shop_android_ui.ui.mainactivity.MainActivityViewModel;
 
 public class AddNewAlbumActivity extends AppCompatActivity {
     private Album album;
-    private AddAlbumClickHandlers clickHandlers;
+    private AddAlbumClickHandler clickHandler;
     private ActivityAddNewAlbumBinding binding;
     private MainActivityViewModel viewModel;
 
@@ -34,9 +34,9 @@ public class AddNewAlbumActivity extends AppCompatActivity {
         album = new Album();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_new_album);
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
-        clickHandlers = new AddAlbumClickHandlers(album, this, viewModel);
+        clickHandler = new AddAlbumClickHandler(album, this, viewModel);
         binding.setAlbum(album);
-        binding.setClickHandler(clickHandlers);
+        binding.setClickHandler(clickHandler);
 
     }
 }

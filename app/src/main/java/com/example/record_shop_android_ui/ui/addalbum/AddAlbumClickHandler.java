@@ -9,12 +9,12 @@ import com.example.record_shop_android_ui.model.Album;
 import com.example.record_shop_android_ui.ui.mainactivity.MainActivity;
 import com.example.record_shop_android_ui.ui.mainactivity.MainActivityViewModel;
 
-public class AddAlbumClickHandlers {
+public class AddAlbumClickHandler {
     Album album;
     Context context;
     MainActivityViewModel viewModel;
 
-    public AddAlbumClickHandlers(Album album, Context context, MainActivityViewModel viewModel) {
+    public AddAlbumClickHandler(Album album, Context context, MainActivityViewModel viewModel) {
         this.album = album;
         this.context = context;
         this.viewModel = viewModel;
