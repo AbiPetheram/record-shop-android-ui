@@ -81,4 +81,25 @@ public class AlbumRepository {
             }
         });
     }
+
+    public void delteAlbum(Long id){
+        AlbumApiService albumApiService = RetrofitInstance.getService();
+        Call<String> call = albumApiService.deleteAlbum(id);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Toast.makeText(application.getApplicationContext(),
+                        response.body(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(application.getApplicationContext(),
+                        "Unable to delete album",
+                        Toast.LENGTH_SHORT).show();
+                Log.e("DELETE REQUEST", t.getMessage());
+            }
+        });
+    }
 }
