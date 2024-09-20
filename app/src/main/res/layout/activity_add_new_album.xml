@@ -10,7 +10,7 @@
             type="com.example.record_shop_android_ui.model.Album" />
         <variable
             name="clickHandler"
-            type="com.example.record_shop_android_ui.ui.addalbum.AddAlbumClickHandlers" />
+            type="com.example.record_shop_android_ui.ui.addalbum.AddAlbumClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
