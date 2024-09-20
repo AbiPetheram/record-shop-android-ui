@@ -2,6 +2,7 @@ package com.example.record_shop_android_ui.ui.updatealbum;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.record_shop_android_ui.model.Album;
@@ -44,6 +45,11 @@ public class UpdateAlbumClickHandlers {
             Intent intent = new Intent(context, MainActivity.class);
             viewModel.deleteAlbum(album.getId());
             context.startActivity(intent);
+    }
+
+    public void onBackButtonClicked(View view){
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 
 }
