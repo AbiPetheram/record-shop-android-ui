@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
     private void displayInRecyclerView(){
         recyclerView = binding.recyclerView;
-        albumAdapter = new AlbumAdapter(this, albums);
+        albumAdapter = new AlbumAdapter(this, albums, this);
         recyclerView.setAdapter(albumAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
