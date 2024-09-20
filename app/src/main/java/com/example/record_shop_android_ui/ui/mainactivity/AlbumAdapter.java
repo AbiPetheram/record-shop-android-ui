@@ -49,9 +49,21 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     public static class AlbumViewHolder extends RecyclerView.ViewHolder{
         AlbumLayoutBinding albumLayoutBinding;
 
-        public AlbumViewHolder(AlbumLayoutBinding albumLayoutBinding) {
+        public AlbumViewHolder(AlbumLayoutBinding albumLayoutBinding, RecyclerViewInterface recyclerViewInterface) {
             super(albumLayoutBinding.getRoot());
             this.albumLayoutBinding = albumLayoutBinding;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
