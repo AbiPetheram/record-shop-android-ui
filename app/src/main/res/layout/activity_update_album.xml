@@ -10,7 +10,7 @@
             type="com.example.record_shop_android_ui.model.Album" />
         <variable
             name="clickHandler"
-            type="com.example.record_shop_android_ui.ui.addalbum.UpdateAlbumClickHandlers" />
+            type="com.example.record_shop_android_ui.ui.updatealbum.UpdateAlbumClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -116,7 +116,7 @@
             android:background="@drawable/rounded_button_green"
             android:backgroundTint="@color/lime_green"
             android:fontFamily="@font/forque"
-            android:onClick="@{clickHandler::updateButton}"
+            android:onClick="@{clickHandler::onUpdateButtonClicked}"
             android:text="Update"
             android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +130,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_button_red"
             android:fontFamily="@font/forque"
-            android:onClick="@{clickHandler::deleteButton}"
+            android:onClick="@{clickHandler::onDeleteButtonClicked}"
             android:text="Delete"
             android:textSize="24dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -148,7 +148,7 @@
             app:srcCompat="@android:drawable/ic_menu_revert"
             app:tint="@color/black"
             android:outlineAmbientShadowColor="@color/lime_green"
-            android:onClick="@{clickHandler::backButton}"/>
+            android:onClick="@{clickHandler::onBackButtonClicked}"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
