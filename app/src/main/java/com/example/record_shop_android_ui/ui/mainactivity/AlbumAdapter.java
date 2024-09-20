@@ -17,10 +17,12 @@ import java.util.List;
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHolder> {
     List<Album> albumList;
     Context context;
+    private final RecyclerViewInterface recyclerViewInterface;
 
-    public AlbumAdapter(Context context, List<Album> albumList) {
+    public AlbumAdapter(Context context, List<Album> albumList, RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.albumList = albumList;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @NonNull
