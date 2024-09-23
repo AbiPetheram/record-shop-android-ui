@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         getAllAlbums();
 
         searchView = findViewById(R.id.searchView);
+        searchView.clearFocus();
         searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -70,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     }
 
     private void filterList(String text){
+        filteredAlbumList = new ArrayList<>();
+
         for (Album album : albums){
             if(album.getAlbumName().toLowerCase().contains(text.toLowerCase())){
                 filteredAlbumList.add(album);
