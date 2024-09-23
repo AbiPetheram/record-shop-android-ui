@@ -71,13 +71,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
     private void filterList(String text){
         for (Album album : albums){
-            if(album.getAlbumName().contains(text)){
+            if(album.getAlbumName().toLowerCase().contains(text.toLowerCase())){
                 filteredAlbumList.add(album);
-            } else {
-                Toast.makeText(MainActivity.this,
-                        "No album found",
-                        Toast.LENGTH_SHORT).show();
             }
+        }
+        if(filteredAlbumList.isEmpty()){
+            Toast.makeText(MainActivity.this,
+                    "No album found",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            albumAdapter.setFilteredAlbumList(filteredAlbumList);
         }
     }
 
