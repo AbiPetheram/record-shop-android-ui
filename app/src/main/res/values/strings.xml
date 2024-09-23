@@ -8,4 +8,6 @@
     <string name="enter_number_in_stock">Enter number in stock</string>
     <string name="enter_genre">Enter genre</string>
     <string name="submit">Submit</string>
+    <string name="search_album_name">Search album name...</string>
+    <string name="search_release_year">Search release year...</string>
 </resources>

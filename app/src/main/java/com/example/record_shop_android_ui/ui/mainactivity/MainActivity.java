@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private final String ALBUM_KEY = "album";
     private ArrayList<Album> filteredAlbumList;
     private SearchView searchView;
+    private SearchView searchViewYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,21 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
                 return true;
             }
         });
+
+        searchViewYear = findViewById(R.id.searchViewYear);
+        searchViewYear.clearFocus();
+        searchViewYear.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterListYear(newText);
+                return true;
+            }
+        });
     }
 
     private void filterList(String text){
@@ -75,6 +91,23 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
         for (Album album : albums){
             if(album.getAlbumName().toLowerCase().contains(text.toLowerCase())){
+                filteredAlbumList.add(album);
+            }
+        }
+        if(filteredAlbumList.isEmpty()){
+            Toast.makeText(MainActivity.this,
+                    "No album found",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            albumAdapter.setFilteredAlbumList(filteredAlbumList);
+        }
+    }
+
+    private void filterListYear(String text){
+        filteredAlbumList = new ArrayList<>();
+
+        for (Album album : albums){
+            if(album.getReleaseYear().contains(text)){
                 filteredAlbumList.add(album);
             }
         }
@@ -110,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(this, UpdateAlbumActivity.class);
-        if(filteredAlbumList == null){
+        if(filteredAlbumList == null || filteredAlbumList.isEmpty()){
             intent.putExtra(ALBUM_KEY, albums.get(position));
         } else{
             intent.putExtra(ALBUM_KEY, filteredAlbumList.get(position));
