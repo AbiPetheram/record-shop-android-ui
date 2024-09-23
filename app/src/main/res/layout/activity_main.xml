@@ -59,5 +59,18 @@
             android:outlineAmbientShadowColor="@color/lime_green"
             android:onClick="@{clickHandler::onClickAddAlbum}"/>
 
+        <Button
+            android:id="@+id/yearTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/year"
+            android:background="@drawable/rounded_button_green"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
