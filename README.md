@@ -29,7 +29,7 @@ Update the BASE_URL in com.example.record_shop_android_ui.service.RetrofitInstan
 
 Update the res.xml.security_config.xml domain to include the URL of your hosted back end project:
 
-`<domain includeSubdomains="true">{your_URL_here</domain>`
+`<domain includeSubdomains="true">{your_URL_here}</domain>`
 
 
 ### Running Program
