@@ -2,6 +2,7 @@ package com.example.record_shop_android_ui.ui.mainactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.SearchView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private ActivityMainBinding binding;
     private MainActivityClickHandler clickHandler;
     private final String ALBUM_KEY = "album";
+    private ArrayList<Album> filteredAlbumList;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,19 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         binding.setClickHandler(clickHandler);
 
         getAllAlbums();
+
+        searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return true;
+            }
+        });
     }
 
     private void getAllAlbums(){
