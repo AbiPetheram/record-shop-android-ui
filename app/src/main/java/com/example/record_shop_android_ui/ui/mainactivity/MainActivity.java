@@ -3,6 +3,7 @@ package com.example.record_shop_android_ui.ui.mainactivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,9 +63,22 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
             @Override
             public boolean onQueryTextChange(String newText) {
+               filterList(newText);
                 return true;
             }
         });
+    }
+
+    private void filterList(String text){
+        for (Album album : albums){
+            if(album.getAlbumName().contains(text)){
+                filteredAlbumList.add(album);
+            } else {
+                Toast.makeText(MainActivity.this,
+                        "No album found",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void getAllAlbums(){
