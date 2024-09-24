@@ -27,19 +27,6 @@
             app:layout_constraintVertical_bias="0.0"
             android:queryHint="@string/search_album_name"/>
 
-        <SearchView
-            android:id="@+id/searchViewYear"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_view_frame"
-            app:layout_constraintBottom_toTopOf="@id/recycler_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchView"
-            app:layout_constraintVertical_bias="0.0"
-            android:queryHint="@string/search_release_year"/>
-
         <ImageView
             android:id="@+id/sound_header"
             android:layout_width="match_parent"
@@ -59,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchViewYear"/>
+            app:layout_constraintTop_toBottomOf="@id/searchView"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"

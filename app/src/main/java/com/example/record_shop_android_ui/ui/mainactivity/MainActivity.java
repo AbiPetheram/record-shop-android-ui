@@ -70,20 +70,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
-        searchViewYear = findViewById(R.id.searchViewYear);
-        searchViewYear.clearFocus();
-        searchViewYear.setOnQueryTextListener(new android.widget.SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                filterListYear(newText);
-                return true;
-            }
-        });
     }
 
     private void filterList(String text){
@@ -91,23 +77,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
         for (Album album : albums){
             if(album.getAlbumName().toLowerCase().contains(text.toLowerCase())){
-                filteredAlbumList.add(album);
-            }
-        }
-        if(filteredAlbumList.isEmpty()){
-            Toast.makeText(MainActivity.this,
-                    "No album found",
-                    Toast.LENGTH_SHORT).show();
-        } else {
-            albumAdapter.setFilteredAlbumList(filteredAlbumList);
-        }
-    }
-
-    private void filterListYear(String text){
-        filteredAlbumList = new ArrayList<>();
-
-        for (Album album : albums){
-            if(album.getReleaseYear().contains(text)){
                 filteredAlbumList.add(album);
             }
         }
