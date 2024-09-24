@@ -1,7 +1,6 @@
 package com.example.record_shop_android_ui.service;
 
 import android.app.Application;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -82,7 +81,7 @@ public class AlbumRepository {
         });
     }
 
-    public void delteAlbum(Long id){
+    public void deleteAlbum(Long id){
         AlbumApiService albumApiService = RetrofitInstance.getService();
         Call<String> call = albumApiService.deleteAlbum(id);
         call.enqueue(new Callback<String>() {
