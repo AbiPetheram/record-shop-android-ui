@@ -4,6 +4,7 @@ import com.example.record_shop_android_ui.model.Album;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -23,5 +24,5 @@ public interface AlbumApiService {
     Call<Album> updateAlbum(@Path("id") Long id, @Body Album album);
 
     @DELETE("api/v1/album/{id}")
-    Call<String> deleteAlbum(@Path("id") Long id);
+    Call<ResponseBody> deleteAlbum(@Path("id") Long id);
 }

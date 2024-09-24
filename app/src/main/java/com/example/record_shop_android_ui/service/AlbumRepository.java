@@ -8,11 +8,14 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.record_shop_android_ui.model.Album;
 
+import java.io.IOException;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Body;
 
 public class AlbumRepository {
     private MutableLiveData<List<Album>> mutableLiveData = new MutableLiveData<>();
@@ -83,17 +86,22 @@ public class AlbumRepository {
 
     public void deleteAlbum(Long id){
         AlbumApiService albumApiService = RetrofitInstance.getService();
-        Call<String> call = albumApiService.deleteAlbum(id);
-        call.enqueue(new Callback<String>() {
+        Call<ResponseBody> call = albumApiService.deleteAlbum(id);
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Toast.makeText(application.getApplicationContext(),
-                        response.body(),
-                        Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    Toast.makeText(application.getApplicationContext(),
+                            response.body().string(),
+                            Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Log.e("delete success", "yay");
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(application.getApplicationContext(),
                         "Unable to delete album",
                         Toast.LENGTH_SHORT).show();
